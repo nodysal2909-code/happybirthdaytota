@@ -1,0 +1,651 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Hanan ♡</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Trebuchet MS", sans-serif;
+      background: #eadcf8;
+      color: #4b3040;
+      overflow-x: hidden;
+    }
+
+    /* ---------- OPENING SCREEN ---------- */
+
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: linear-gradient(135deg, #c9a9d8, #eadcf8, #8b6250);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 1s ease;
+    }
+
+    .gift {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .gift-box {
+      width: 150px;
+      height: 120px;
+      background: #74503f;
+      margin: auto;
+      position: relative;
+      border-radius: 10px;
+      box-shadow: 0 15px 40px rgba(75, 48, 64, 0.25);
+      animation: bounce 2s infinite;
+    }
+
+    .gift-box::before {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 120px;
+      background: #b999d0;
+      left: 62px;
+    }
+
+    .gift-box::after {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 25px;
+      background: #b999d0;
+      left: -10px;
+      top: -12px;
+      border-radius: 8px;
+    }
+
+    .gift h2 {
+      margin-top: 30px;
+      color: white;
+      font-size: 22px;
+      letter-spacing: 2px;
+    }
+
+    .gift p {
+      color: #fff5ff;
+      margin-top: 10px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* ---------- MAIN ---------- */
+
+    main {
+      display: none;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 80px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 20% 20%, #ffffff80 0 3px, transparent 4px),
+        radial-gradient(circle at 80% 40%, #ffffff80 0 3px, transparent 4px),
+        linear-gradient(135deg, #d8bce8, #f0e4fa, #9a705d);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .small-title {
+      font-size: 16px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #765064;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: clamp(60px, 14vw, 130px);
+      color: #563b55;
+      text-shadow: 4px 4px 0 #ffffff80;
+      margin-bottom: 10px;
+    }
+
+    .age {
+      font-size: 30px;
+      color: #694a3b;
+      font-weight: bold;
+    }
+
+    .date {
+      margin-top: 15px;
+      color: #6f5368;
+      letter-spacing: 3px;
+    }
+
+    .scroll {
+      position: absolute;
+      bottom: 30px;
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: #684a55;
+      animation: updown 1.5s infinite;
+    }
+
+    @keyframes updown {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    /* ---------- MESSAGE ---------- */
+
+    .message-section {
+      background: #f5edfa;
+    }
+
+    .card {
+      max-width: 750px;
+      background: #fffaff;
+      padding: 50px;
+      border-radius: 30px;
+      box-shadow: 0 20px 60px #6b4b5b25;
+      border: 2px solid #d3b8df;
+    }
+
+    .card h2 {
+      color: #664463;
+      font-size: 35px;
+      margin-bottom: 25px;
+    }
+
+    .card p {
+      line-height: 1.9;
+      font-size: 18px;
+      color: #654d58;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #79546a;
+      font-style: italic;
+    }
+
+    /* ---------- MEMORIES ---------- */
+
+    .memories {
+      background: #8b6250;
+      color: white;
+    }
+
+    .memories h2 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .memories > p {
+      margin-bottom: 40px;
+      color: #f5e9e3;
+    }
+
+    .memory-grid {
+      width: min(1000px, 95%);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .memory {
+      height: 250px;
+      border-radius: 25px;
+      background: #c9a9d8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #543d50;
+      font-size: 17px;
+      font-weight: bold;
+      border: 4px solid #eadcf8;
+      transition: .4s;
+      overflow: hidden;
+    }
+
+    .memory:hover {
+      transform: translateY(-10px) rotate(1deg);
+      box-shadow: 0 20px 30px #39231d55;
+    }
+
+    .memory img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ---------- SECRET ---------- */
+
+    .secret-section {
+      background: #eadcf8;
+    }
+
+    .secret-section h2 {
+      font-size: 40px;
+      color: #5c4058;
+      margin-bottom: 20px;
+    }
+
+    .secret-btn {
+      padding: 18px 35px;
+      border: none;
+      border-radius: 50px;
+      background: #74503f;
+      color: white;
+      font-size: 17px;
+      cursor: pointer;
+      transition: .3s;
+      box-shadow: 0 10px 25px #74503f40;
+    }
+
+    .secret-btn:hover {
+      transform: scale(1.08);
+      background: #604132;
+    }
+
+    .secret-message {
+      display: none;
+      max-width: 650px;
+      margin-top: 35px;
+      background: #fffaff;
+      padding: 35px;
+      border-radius: 25px;
+      color: #604855;
+      line-height: 1.8;
+      box-shadow: 0 15px 40px #60413225;
+    }
+
+    /* ---------- FINAL ---------- */
+
+    .final {
+      background: linear-gradient(135deg, #765246, #b999d0, #eadcf8);
+      color: white;
+    }
+
+    .final h2 {
+      font-size: clamp(40px, 8vw, 75px);
+      margin-bottom: 20px;
+    }
+
+    .final p {
+      font-size: 20px;
+      max-width: 650px;
+      line-height: 1.7;
+    }
+
+    .heart {
+      font-size: 60px;
+      margin-top: 30px;
+      animation: heartbeat 1.3s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    /* ---------- FLOATING HEARTS ---------- */
+
+    .floating {
+      position: fixed;
+      bottom: -30px;
+      font-size: 20px;
+      pointer-events: none;
+      animation: floatUp 6s linear forwards;
+      z-index: 20;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* ---------- CONFETTI ---------- */
+
+    .confetti {
+      position: fixed;
+      top: -20px;
+      width: 10px;
+      height: 16px;
+      z-index: 2000;
+      animation: fall 4s linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width: 700px) {
+
+      .card {
+        padding: 30px 22px;
+      }
+
+      .memory-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .memory {
+        height: 220px;
+      }
+
+      .memories h2,
+      .secret-section h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- OPENING -->
+  <div class="intro" id="intro">
+    <div class="gift" onclick="openGift()">
+      <div class="gift-box"></div>
+      <h2>A little surprise for Hanan...</h2>
+      <p>Click the gift 🎁</p>
+    </div>
+  </div>
+
+
+  <!-- WEBSITE -->
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="small-title">
+        A special day for a special person
+      </div>
+
+      <h1>Hanan</h1>
+
+      <div class="age">
+        Sweet 17 ♡
+      </div>
+
+      <div class="date">
+        20 • 09 • 2009
+      </div>
+
+      <div class="scroll">
+        ↓ scroll down ↓
+      </div>
+
+    </section>
+
+
+    <!-- MESSAGE -->
+    <section class="message-section">
+
+      <div class="card">
+
+        <h2>Happy Birthday, Hanan ♡</h2>
+
+        <p>
+          Today isn't just another day.
+          It's the day one of my favorite people in the world was born.
+          <br><br>
+
+          Seventeen looks pretty good on you already.
+          I hope this new year of your life brings you moments
+          you'll remember forever, people who make you smile,
+          and dreams that slowly become real.
+          <br><br>
+
+          Thank you for all the random conversations,
+          the laughs, the memories, and all the little moments
+          that somehow became important.
+          <br><br>
+
+          No matter how much time passes,
+          I hope you always remember that you are deeply appreciated,
+          incredibly special, and impossible to replace.
+        </p>
+
+        <div class="signature">
+          — from your best friend ♡
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- MEMORIES -->
+    <section class="memories">
+
+      <h2>Our Little Memories 📸</h2>
+
+      <p>
+        Every picture has a story.
+      </p>
+
+      <div class="memory-grid">
+
+        <!-- Replace these with your pictures -->
+        <div class="memory">
+          Photo 01 ♡
+        </div>
+
+        <div class="memory">
+          Photo 02 ♡
+        </div>
+
+        <div class="memory">
+          Photo 03 ♡
+        </div>
+
+        <div class="memory">
+          Photo 04 ♡
+        </div>
+
+        <div class="memory">
+          Photo 05 ♡
+        </div>
+
+        <div class="memory">
+          Photo 06 ♡
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SECRET -->
+    <section class="secret-section">
+
+      <h2>There's something else... 👀</h2>
+
+      <button class="secret-btn" onclick="showSecret()">
+        Open your secret message 💌
+      </button>
+
+      <div class="secret-message" id="secret">
+
+        Hanan,
+
+        <br><br>
+
+        If you're reading this, congratulations...
+        you officially survived another year of being my best friend. 😂
+
+        <br><br>
+
+        But seriously, I hope you know how much you mean to me.
+        Some people come into our lives and leave memories.
+        You're one of those people who becomes part of the memories themselves.
+
+        <br><br>
+
+        So here's to 17 —
+        to more laughs,
+        more stupid conversations,
+        more unforgettable moments,
+        and hopefully many, many more birthdays together.
+
+        <br><br>
+
+        Happy birthday to my favorite human. ♡
+
+      </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+    <section class="final">
+
+      <h2>Happy 17th, Hanan! ♡</h2>
+
+      <p>
+        May this year be softer,
+        brighter,
+        crazier,
+        happier,
+        and full of beautiful surprises.
+      </p>
+
+      <div class="heart">
+        💜
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script>
+
+    /* OPEN GIFT */
+
+    function openGift() {
+
+      document.getElementById("intro").style.opacity = "0";
+
+      setTimeout(() => {
+        document.getElementById("intro").style.display = "none";
+        document.getElementById("main").style.display = "block";
+
+        createConfetti();
+      }, 900);
+    }
+
+
+    /* SECRET MESSAGE */
+
+    function showSecret() {
+
+      const message = document.getElementById("secret");
+
+      if (message.style.display === "block") {
+
+        message.style.display = "none";
+
+      } else {
+
+        message.style.display = "block";
+
+        createConfetti();
+
+      }
+    }
+
+
+    /* FLOATING HEARTS */
+
+    const hearts = ["💜", "🤎", "♡", "✦", "✧"];
+
+    setInterval(() => {
+
+      const heart = document.createElement("div");
+
+      heart.className = "floating";
+
+      heart.innerHTML =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+
+      heart.style.animationDuration =
+        (4 + Math.random() * 4) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+
+    }, 900);
+
+
+    /* CONFETTI */
+
+    function createConfetti() {
+
+      for (let i = 0; i < 100; i++) {
+
+        const piece = document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.style.left = Math.random() * 100 + "vw";
+
+        piece.style.background =
+          Math.random() > 0.5 ? "#b999d0" : "#74503f";
+
+        piece.style.animationDelay =
+          Math.random() * 2 + "s";
+
+        piece.style.transform =
+          `rotate(${Math.random() * 360}deg)`;
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+          piece.remove();
+        }, 6000);
+      }
+    }
+
+  </script>
+
+</body>
+</html>
+```
